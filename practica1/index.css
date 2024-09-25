@@ -1,0 +1,64 @@
+#buscador {
+    color: #7f888f;
+    font-size: 12px;
+    font-family: "Open Sans", sans-serif;
+    margin: -20px, 0 40px -20px;
+    padding: 20px;
+    width: 270px;
+    height: 76px;
+    background-color: #eff1f2;
+}
+
+ul {
+    user-select: none;
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-weight: 400;
+    letter-spacing: 0.075em;
+    list-style: none;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+ul li a {
+    color: #3d4449;
+    font-size: 10.8px;
+    font-family: "Roboto Slab", serif;
+    padding: 6.75px, 0;
+    width: 231px;
+    height: 31px;
+    text-decoration: none;
+}
+
+ul li {
+    border-top: solid 1px rgba(210, 215, 217, 0.75);
+    margin: 0.5em;
+    padding: 0.5em 0 0 0;
+}
+
+ul li:first-child {
+    border-top: none;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 31px;
+    left: 0;
+    background-color: #ffffff;
+    width: 231px;
+    padding: 10px 0;
+    border-radius: 0 0 4px 4px;
+}
+
+.opener:hover .submenu {
+    display: block;
+    /* Mostrar submenú al pasar el mouse */
+}
+
+.opener::before {
+    content: "▼";
+    /* Añadir un ícono */
+    margin-left: 5px;
+    /* Espaciado */
+}
