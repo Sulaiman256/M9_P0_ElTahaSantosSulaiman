@@ -301,12 +301,6 @@ div {
   width: 100%;
 }
 
-#main > .inner {
-  padding: 0 2em 0.1em 2em;
-  margin: 0 auto;
-  max-width: 110em;
-}
-
 #header {
   padding-top: 6.5em;
   display: flex;
@@ -476,53 +470,73 @@ h2 {
   line-height: 1.5;
 }
 
-/* Establecer que el contenedor .features use flexbox */
-
 .features {
+  margin: 0 0 2em 0;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  /* Permite que los artículos se envuelvan a la siguiente línea */
-  gap: 20px;
-  /* Espacio entre los artículos */
 }
-
-/* Cada artículo dentro de .features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 20px; /* Espacio entre columnas */
+  margin: 50px auto;
+  max-width: 1200px; /* Ancho máximo */
+}
 
 .features article {
   display: flex;
+  align-items: center; /* Alinear ícono y texto en el centro verticalmente */
+  background-color: #fff;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.features article:hover {
+  transform: translateY(-5px); /* Efecto hover */
+}
+
+.content2 {
+  display: flex; /* Hacer que el contenido sea flexible */
+  align-items: center; /* Alinear verticalmente al centro */
+  gap: 20px; /* Espacio entre el ícono y el texto */
+}
+
+.contentIzquierda {
+  padding: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  /* Centrar icono y contenido verticalmente */
-  flex: 0 0 48%;
-  /* Cada artículo ocupa el 48% del ancho, dejando un pequeño espacio entre ellos */
-  gap: 20px;
-  /* Espacio entre el icono y el contenido */
-  box-sizing: border-box;
-  /* Asegura que el padding no afecte el ancho total */
+  font-size: 2rem; /* Tamaño del ícono */
+  transform: rotate(45deg);
+  border-radius: 0.25rem;
+  border: solid 2px rgba(210, 215, 217, 0.75);
 }
 
-/* Icono en el artículo: se coloca a la izquierda */
-
-.features .contentIzquierda {
-  font-size: 3rem;
-  /* Tamaño del icono */
-  color: #333;
-  /* Color del icono (puedes ajustarlo a tu gusto) */
+.contentIzquierda span {
+  transform: rotate(315deg);
+  color: #ff6b6b; /* Color del ícono */
 }
 
-/* Contenido del artículo: se coloca a la derecha */
-
-.features .contentDerecha {
-  flex: 1;
-  /* El contenido ocupa el espacio restante */
+.contentDerecha {
+  display: flex;
+  flex-direction: column; /* Alinear el título y el párrafo en vertical */
 }
 
-/* Ajustes para pantallas pequeñas */
+.contentDerecha h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-@media (max-width: 768px) {
-  .features article {
-    flex: 0 0 100%;
-    /* En pantallas pequeñas, cada artículo ocupa el 100% del ancho */
-  }
+.contentDerecha p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #777;
 }
 
 .icon {
@@ -561,33 +575,63 @@ h3 {
   margin: 0 0 1em 0;
 }
 
-.content {
-  width: 50%;
-  display: flex;
+.features article .content {
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+}
+.features article .content > :last-child {
+  margin-bottom: 0;
 }
 
 p {
   margin: 0 0 2em 0;
 }
-
-.posts article:before {
-  background: rgba(210, 215, 217, 0.75);
-  content: "";
-  display: block;
-  height: calc(100% + 6);
-  left: -3em;
-  position: absolute;
-  top: 0;
-  width: 1px;
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacio entre los artículos */
 }
 
-.posts article:after {
-  background: rgba(210, 215, 217, 0.75);
-  content: "";
-  display: block;
-  height: 1px;
-  position: absolute;
-  right: 0;
+.posts article {
+  border: 1px solid rgba(210, 215, 217, 0.75); /* Borde por defecto */
+  border-left: none; /* Sin borde izquierdo */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  max-width: calc(50% - 10px); /* Para tener dos columnas */
+  box-sizing: border-box; /* Incluir el padding y el borde en el tamaño total */
+}
+
+/* Sin borde superior para el primer artículo */
+.posts article:first-child {
+  border-top: none; /* Sin borde superior */
+}
+
+/* Estilo para la imagen */
+.posts img {
+  width: 100%;
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+.posts h3 {
+  margin-top: 10px; /* Espacio encima del título */
+}
+
+.posts p {
+  margin-right: 22px; /* Espacio a la derecha del texto para evitar que sobrepase */
+  font-size: 14px;
+}
+
+#sidebar {
+  background-color: #f5f6f7;
+  transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+  font-size: 0.8em; /* Ajusta el tamaño de la fuente */
+  width: 30em; /* Ajusta el ancho del sidebar */
+  margin: 0; /* Elimina margen */
+}
+
+#sidebar nav ul li {
+  margin: 5px 0; /* Reduce el margen entre elementos de lista */
 }
 
 #sidebar .toggle {
@@ -604,24 +648,30 @@ p {
   z-index: 10000;
 }
 
-#sidebar {
-  background-color: #f5f6f7;
-  transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-  font-size: 0.9em;
+#search {
+  text-align: center; /* Centra el contenido dentro de la sección */
+  margin: -20px 0 40px -20px; /* Margen superior negativo y márgenes inferiores */
+  padding: 20px; /* Espaciado interno */
+  background-color: #eff1f2;
+}
+
+#search form {
+  display: flex; /* Usar flexbox para centrar el input */
+  justify-content: center; /* Centra el input horizontalmente */
+  margin-top: 30px; /* Ajusta este valor para bajar el input más */
 }
 
 #search form input[type="text"] {
   padding-right: 2.75em;
   height: 2.75em;
-  background: #ffffff;
   border-radius: 0.375em;
   border: solid 1px rgba(210, 215, 217, 0.75);
-  color: inherit;
-  display: block;
+  color: #b5b8bb; /* Cambia el color del texto a blanco */
   outline: 0;
   padding: 0 1em;
   text-decoration: none;
-  width: 60%;
+  width: 60%; /* Ancho del input */
+  margin: 0 auto; /* Centra el input dentro del form */
 }
 
 #menu ul {
