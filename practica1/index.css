@@ -476,11 +476,53 @@ h2 {
   line-height: 1.5;
 }
 
+/* Establecer que el contenedor .features use flexbox */
+
 .features {
-  margin: 0 0 2em 0;
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  /* Permite que los artículos se envuelvan a la siguiente línea */
+  gap: 20px;
+  /* Espacio entre los artículos */
+}
+
+/* Cada artículo dentro de .features */
+
+.features article {
+  display: flex;
+  align-items: center;
+  /* Centrar icono y contenido verticalmente */
+  flex: 0 0 48%;
+  /* Cada artículo ocupa el 48% del ancho, dejando un pequeño espacio entre ellos */
+  gap: 20px;
+  /* Espacio entre el icono y el contenido */
+  box-sizing: border-box;
+  /* Asegura que el padding no afecte el ancho total */
+}
+
+/* Icono en el artículo: se coloca a la izquierda */
+
+.features .contentIzquierda {
+  font-size: 3rem;
+  /* Tamaño del icono */
+  color: #333;
+  /* Color del icono (puedes ajustarlo a tu gusto) */
+}
+
+/* Contenido del artículo: se coloca a la derecha */
+
+.features .contentDerecha {
+  flex: 1;
+  /* El contenido ocupa el espacio restante */
+}
+
+/* Ajustes para pantallas pequeñas */
+
+@media (max-width: 768px) {
+  .features article {
+    flex: 0 0 100%;
+    /* En pantallas pequeñas, cada artículo ocupa el 100% del ancho */
+  }
 }
 
 .icon {
@@ -519,13 +561,9 @@ h3 {
   margin: 0 0 1em 0;
 }
 
-.features article .content {
-  flex-grow: 1;
-  flex-shrink: 1;
-  width: 100%;
-}
-.features article .content > :last-child {
-  margin-bottom: 0;
+.content {
+  width: 50%;
+  display: flex;
 }
 
 p {
@@ -571,6 +609,7 @@ p {
   transition: margin-left 0.5s ease, box-shadow 0.5s ease;
   font-size: 0.9em;
 }
+
 #search form input[type="text"] {
   padding-right: 2.75em;
   height: 2.75em;
