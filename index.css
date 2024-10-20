@@ -1,12 +1,16 @@
+/* Fondo principal del demo */
+
 #demo {
   background-color: #fafbfd;
 }
+/* Reset de márgenes y padding */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+/* Estilo general del cuerpo */
 
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -14,16 +18,19 @@ body {
   background-color: #ffffff;
   color: #7f888f;
 }
+/* Wrapper que invierte la dirección del flex */
 
 #wrapper {
   display: flex;
   flex-direction: row-reverse;
   min-height: 100vh;
 }
+/* Padding interno general */
 
 .inner {
   padding: 0 2.5em;
 }
+/* Estilos generales para div */
 
 div {
   margin: 0;
@@ -32,11 +39,13 @@ div {
   font-size: 100%;
   vertical-align: baseline;
 }
+/* Área principal que se expande */
 
 #main {
   flex-grow: 1;
   width: calc(100% - 26em);
 }
+/* Encabezado con borde inferior */
 
 #header {
   display: flex;
@@ -52,6 +61,7 @@ header {
   font-size: 100%;
   vertical-align: baseline;
 }
+/* Estilo de texto y enlace para el logo */
 
 #header .logo {
   font-family: "Roboto Slab", serif;
@@ -60,6 +70,7 @@ header {
   text-decoration: none;
   color: #3d4449;
 }
+/* Estilo de íconos en el encabezado */
 
 #header .icons {
   display: flex;
@@ -69,6 +80,7 @@ header {
   height: 2em;
   line-height: 5em;
 }
+/* Estilo para los elementos de la lista de íconos */
 
 #header .icons li {
   margin-left: 1em;
@@ -77,6 +89,9 @@ header {
 
 #header .icons a {
   color: #7f888f;
+}
+#header .icons a:hover {
+  color: #f56a6a;
 }
 
 .icons li {
@@ -105,8 +120,10 @@ header {
 
 #banner {
   display: flex;
-  padding: 6em 0 4em 0;
+  padding: 6em 0 8em 0;
   align-items: center;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 100px;
 }
 
 #banner .content {
@@ -220,12 +237,9 @@ li {
   position: relative;
 }
 
-.article-grid {
-  padding: 2em 0;
-}
-
 .article-grid .major {
   margin-bottom: 2em;
+  margin-top: 5em;
 }
 
 .article-grid .major h2 {
@@ -235,18 +249,7 @@ li {
   font-weight: 700;
   line-height: 1.5;
   margin: 0 0 0.5em 0;
-  position: relative;
   padding-bottom: 0.5em;
-}
-
-.article-grid .major h2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 3em;
-  height: 2px;
-  background-color: #f56a6a;
 }
 
 .major > :last-child {
@@ -662,7 +665,10 @@ p {
 .post article p {
   margin-right: 20px;
   margin-top: 10px;
+  border-bottom: 1px solid #e6e6e6; /* Cambia el color y grosor según tu preferencia */
+  padding-bottom: 20px;
 }
-.post article span {
-  border-bottom: 1px solid black;
+.sectionFeatures {
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 3em;
 }
